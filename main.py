@@ -42,6 +42,7 @@ def main() -> None:
         data = f.read()
     assert data == LINE, "read-back mismatch"
     assert 1 <= len(data) <= 200, "entry must be 1-200 characters"
+    assert "\n" not in data, "entry must be a single line"
     assert data.strip() == data, "entry must not be only whitespace"
     print(f"wrote {path}: {len(data)} characters, {len(data.encode('utf-8'))} bytes")
 
